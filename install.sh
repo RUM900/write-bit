@@ -22,12 +22,15 @@ echo "[2/3] 安装技能文件..."
 SKILL_DIR="$HOME/.claude/skills/write-bid"
 mkdir -p "$SKILL_DIR"
 
-# 复制技能文件
 cp write-bid/SKILL.md "$SKILL_DIR/"
 if [ $? -ne 0 ]; then
     echo "[错误] 技能文件复制失败"
     exit 1
 fi
+
+# 复制解析脚本
+echo "[3/3] 安装解析脚本..."
+cp write-bid/*.py "$SKILL_DIR/" 2>/dev/null
 
 echo
 echo "========================================"

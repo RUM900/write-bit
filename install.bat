@@ -24,13 +24,16 @@ echo [2/3] 安装技能文件...
 set SKILL_DIR=%USERPROFILE%\.claude\skills\write-bid
 if not exist "%SKILL_DIR%" mkdir "%SKILL_DIR%"
 
-:: 复制技能文件
 copy /Y write-bid\SKILL.md "%SKILL_DIR%\" >nul
 if errorlevel 1 (
     echo [错误] 技能文件复制失败
     pause
     exit /b 1
 )
+
+:: 复制解析脚本
+echo [3/3] 安装解析脚本...
+copy /Y write-bid\*.py "%SKILL_DIR%\" >nul
 
 echo.
 echo ========================================
