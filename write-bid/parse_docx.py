@@ -1,6 +1,10 @@
 """解析 DOCX 招标文件，输出 Markdown 到 stdout。"""
 import sys
+import io
 from pathlib import Path
+
+# 设置 stdout 为 UTF-8 编码
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 try:
     import docx
